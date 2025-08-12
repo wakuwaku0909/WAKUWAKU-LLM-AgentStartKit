@@ -218,3 +218,6 @@ http-client.private.env.json
 # ==================================================================================
 
 # Add your custom ignore patterns here
+
+# Gemini CLI Environment File
+.env
