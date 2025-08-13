@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(**)",
+      "MultiEdit(**)",
+      "Read(**)",
+      "Write(.claude/tmp/**)",
+      "Write(.claude/docs/**)",
+      "Grep(**)",
+      "Glob(**)",
+      "LS(**)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(pwd)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(diff:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cat:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(git:branch*)",
+      "Bash(git:add*)",
+      "Bash(git:log*)",
+      "Bash(git:status)",
+      "Bash(git:diff*)",
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(npm:install*)",
+      "Bash(npm:run {dev,build,test})",
+      "Bash(echo:*)"
+    ],
+    "deny": [
+      "Bash(sudo:*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Read(.env.*)",
+      "Write(.env*)",
+      "Write(**/secrets/**)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm remove:*)"
+    ]
+  },
+  "cleanupPeriodDays": 30,
+  "includeCoAuthoredBy": false,
+  "env": {}
+}

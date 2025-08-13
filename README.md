@@ -96,7 +96,6 @@ anyenv init
 
 ```
 
-
 #### anyenv を利用して、Node.js をインストールする。
 
 Node.jsをバージョン管理するために、nodenvをインストールします。
@@ -148,7 +147,7 @@ node --version
 
 ## Install LLM Agent: LLM Agentのインストール
 
-VS Code を 起動し、Terminalを立ち上げましょう。 
+VS Code を 起動し、Terminalを立ち上げましょう。
 
 - Windows: `Control + j` ボタンで起動できます。
 - mac: `Command + J` ボタンで起動できます。
@@ -196,7 +195,7 @@ codex login
 
 ## Getting Started: LLM Agent を起動する
 
-VS Code を 起動し、Terminalを立ち上げましょう。 
+VS Code を 起動し、Terminalを立ち上げましょう。
 
 - Windows: `Control + j` ボタンで起動できます。
 - mac: `Command + J` ボタンで起動できます。
@@ -234,6 +233,24 @@ codex
 
 ```
 
+## Execution: LLMエージェントにタスクを実行してもらう。
+
+現在、カスタムスラッシュコマンドに対応している以下ツールのみに対応しています。
+execファイルに記載されたタスクをエージェントが実行します。
+
+- Gemini CLI
+  - [exec.toml](.gemini/commands/exec.toml)
+- Claude Code
+  - [exec.md](.claude/commands/exec.md)
+
+```bash
+# LLMを起動後（ロゴの表示後）以下コマンドにて実行
+
+/exec
+
+
+```
+
 
 
 
@@ -248,7 +265,7 @@ root/  -------------------------- # Current Directoire 作業ディレクトリ
 │   ├── prompts/  --------------- # Claude Code 汎用プロンプト 格納ディレクトリ
 │   ├── tmp/  ------------------- # Claude Code テンポラリーファイル格納ディレクトリ
 │   ├── settings.json  ---------- # Claude Code チーム共有用 設定ファイル
-│   └── settings.local.json  ---- # Claude Code 個人用 設定ファイル 
+│   └── settings.local.json  ---- # Claude Code 個人用 設定ファイル
 ├── .gemini/  ------------------- # Gemini CLI ディレクトリ
 │   ├── commands/  -------------- # Gemini CLI カスタムスラッシュコマンド 格納ディレクトリ
 │   │   └── tasks/  ------------- # 分割タスクのMarkdownファイル格納ディレクトリ
@@ -263,7 +280,6 @@ root/  -------------------------- # Current Directoire 作業ディレクトリ
 └── README.md  ------------------ # Current File
 ```
 
-
 ## Commands: 実行コマンド
 
 ```bash
@@ -271,7 +287,7 @@ root/  -------------------------- # Current Directoire 作業ディレクトリ
 claude
 
 # Gemini CLI を起動する。
-gemini 
+gemini
 
 ```
 
@@ -279,22 +295,25 @@ gemini
 
 ### Context7
 
-TBA
-
-### Asana
-
-TBA
+[Context7 MCP](./docs//MCP/mcp-context7.md)
 
 ### Playwright
 
-TBA
+[Playwright MCP](./docs//MCP/mcp-playwright.md)
 
 ### GitHub
 
-TBA
+[GitHub MCP Server (Remote Server)](./docs//MCP/mcp-github-remote.md)
 
+### Asana
+
+[Asana MCP](./docs//MCP/mcp-asana.md)
 
 ## Caution: 注意事項
+
+### 認証情報を設定ファイルに保存しない
+
+### MCP Serverを利用する際の認証情報の設定について
 
 ## Appendix: 参考資料
 

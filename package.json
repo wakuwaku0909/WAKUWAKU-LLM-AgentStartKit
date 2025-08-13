@@ -1,0 +1,12 @@
+{
+  "name": "wakuwaku-llm-agent-starterkit",
+  "version": "0.1.0",
+  "author": "WAKUWAKU Inc.",
+  "description": " WAKUWAKU inc. LLM Agent StartKit: LLM Agent スタートキット",
+  "scripts": {
+  },
+  "dependencies": {
+    "@google-analytics/data": "^4.8.0",
+    "playwright": "^1.54.2"
+  }
+}

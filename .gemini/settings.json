@@ -1,0 +1,37 @@
+{
+  "theme": "Default",
+  "autoAccept": false,
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "asana": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.asana.com/sse"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+          "Authorization": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "timeout": 5000
+    },
+    "google-analytics": {
+      "command": "pipx",
+      "args": [
+        "run",
+        "--spec",
+        "git+https://github.com/googleanalytics/google-analytics-mcp.git",
+        "google-analytics-mcp"
+      ]
+    }
+  }
+}
