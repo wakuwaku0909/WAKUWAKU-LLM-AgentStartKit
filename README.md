@@ -205,10 +205,8 @@ VS Code を 起動し、Terminalを立ち上げましょう。
 ### Gemini CLI を起動する。
 
 ```bash
-
+# Gemini CLI を起動する。
 gemini
-
-
 ```
 
 ### Claude Code, Codex を起動したい場合
@@ -218,19 +216,15 @@ gemini
 Claude Code
 
 ```bash
-
+# Claude Code を起動する。
 claude
-
-
 ```
 
 Codex CLI
 
 ```bash
-
+# Codex CLI を起動する。
 codex
-
-
 ```
 
 ## Execution: LLMエージェントにタスクを実行してもらう。
@@ -245,10 +239,7 @@ execファイルに記載されたタスクをエージェントが実行しま�
 
 ```bash
 # LLMを起動後（ロゴの表示後）以下コマンドにて実行
-
 /exec
-
-
 ```
 
 
@@ -300,6 +291,11 @@ gemini
 ### Playwright
 
 [Playwright MCP](./docs//MCP/mcp-playwright.md)
+
+### Google Analytics
+
+[Google Analytics MCP](./docs//MCP/mcp-google-analytics.md)
+
 
 ### GitHub
 

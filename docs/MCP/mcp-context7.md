@@ -10,3 +10,6 @@ https://github.com/upstash/context7
   - get-library-docs
   - resolve-library-id
 ```
+
+## Appendix: 参考資料
+
