@@ -221,3 +221,8 @@ http-client.private.env.json
 
 # Gemini CLI Environment File
 .env
+
+# Local Config Files
+.config/
+!.config/.keep
+
