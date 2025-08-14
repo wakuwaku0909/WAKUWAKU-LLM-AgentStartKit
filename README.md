@@ -3,6 +3,9 @@
 ## Overview: 概要
 
 WAKUWAKU Inc. において、LLM Agent を利用した、自動化タスクを作成する為のスターターキットです。
+
+このスターターキットは、LLM Agentを利用して、日常的に行うタスクを自動化するためのものです。
+
 IDEを利用したLLM Agentの実行をサポートします。
 
 WAKUWAKUではGoogle Workspaceを利用しているため、Gemini CLIを使って無料で利用可能です。
@@ -18,27 +21,80 @@ WAKUWAKUではGoogle Workspaceを利用しているため、Gemini CLIを使っ�
 
 対象のLLM Agentは以下になります。
 
-- Gemini CLI ( Google )
+- Gemini CLI
+- (Optional) Claude Code
+- (Optional) Codex CLI
 
-有料サービスの契約が必要になりますが、下記 LLM Agentも利用可能です。
+## How to Use: 使い方
 
-- Claude Code ( Anthropic )
-- Codex ( OpenAI )
+### 1. エディタ( VS Code etc )を開いてTerminalを起動する
 
+VS Code を 起動し、Terminalを立ち上げましょう。
+
+- Windows: `Control + j` ボタンで起動できます。
+- mac: `Command + J` ボタンで起動できます。
+
+### 2. LLM Agent を起動する。
+
+Terminalにコマンドを入力するか、コピーしてEnterボタンを押下してください。
+
+```bash
+# Gemini CLI を起動する。
+gemini
+```
+
+#### Claude Code, Codex を起動したい場合
+
+それぞれ以下のコマンドを入力するか、コピーしてEnterボタンを押下してください。
+
+Claude Code
+
+```bash
+# Claude Code を起動する。
+claude
+```
+
+Codex CLI
+
+```bash
+# Codex CLI を起動する。
+codex
+```
+
+### 3. エージェントにタスクを実行してもらう。
+
+現在、カスタムスラッシュコマンドに対応している以下ツールのみに対応しています。
+execファイルに記載されたタスクをエージェントが実行します。
+
+- Gemini CLI
+  - [exec.toml](.gemini/commands/exec.toml)
+- Claude Code
+  - [exec.md](.claude/commands/exec.md)
+
+```bash
+# LLMを起動後（ロゴの表示後）以下コマンドにて実行
+/exec
+```
+
+任意の作業を実行させたい時は、execファイルを編集してLLM エージェントを再起動して実行してください。
 
 ## Requirements: 必要要件
+
 以下の一般的に使用される開発ツールを必要とします。
 
-- [Node.js](https://nodejs.org/): version 20 or higher installed.
+- [Node.js](https://nodejs.org/): version 22 or higher installed.
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli)
 
-必要に応じて、以下のツールをインストールしてください。
+有料サービスの契約が必要になりますが、以下のツールなども必要に応じてインストールして利用できます。
 
-- Claude Code ( Anthropic )
-- Codex ( OpenAI )
+- Anthropic: Claude Code
+  - https://docs.anthropic.com/ja/docs/claude-code/overview
+- OpenAI: Codex CLI
+  - https://github.com/openai/codex
 
+#### For Developer
 
-### For Developer: エンジニアなど開発者の方は下記ツールの利用を推奨しています。
+エンジニアなど開発者の方は下記ツールの利用を推奨しています。
 
 #### Windows
 
@@ -54,7 +110,7 @@ WAKUWAKUではGoogle Workspaceを利用しているため、Gemini CLIを使っ�
 - [git](https://git-scm.com/downloads)
 
 
-## Preparations: 事前準備
+## Getting Started: 事前準備
 
 ### Node.js をインストールする。
 
@@ -62,8 +118,25 @@ https://nodejs.org/ja/download
 
 上記ページを訪れ、インストーラーをダウンロードしてインストールしてください。
 
+### Gemini CLIをインストール
 
-### For Developer: エンジニアなど開発者の方は、コマンドラインでのインストールを推奨しています。
+VS Code を 起動し、Terminalを立ち上げましょう。
+
+- Windows: `Control + j` ボタンで起動できます。
+- mac: `Command + J` ボタンで起動できます。
+
+ターミナルに下記コマンドを入力するか、コピーしてEnterボタンを押下してください。
+
+```bash
+# Gemini CLI をインストールする。
+npx https://github.com/google-gemini/gemini-cli
+```
+
+------------------------------------------------------------------------------------
+
+#### For Developer
+
+エンジニアなど開発者の方は、コマンドラインでのインストールを推奨しています。
 
 ※ Windows利用中のエンジニアはWSLにてコマンドラインで実行してください。
 
@@ -123,7 +196,7 @@ graal+ce_java11-20.0.0
 graal+ce_java8-20.0.0
 
 ```
-2025/07 現在は22以上のバージョンを推奨しています。
+2025/08/01 現在は22以上のバージョンを推奨しています。
 
 ```bash
 nodenv install 22.16.0
@@ -145,7 +218,7 @@ node --version
 ```
 
 
-## Install LLM Agent: LLM Agentのインストール
+#### Install LLM Agent: LLM Agentのインストール
 
 VS Code を 起動し、Terminalを立ち上げましょう。
 
@@ -168,7 +241,7 @@ gemini
 
 以下は、有料のサブスクリプションを契約された方のみ実行してください。
 
-### Claude Code をインストールし、認証を行う。
+#### Claude Code をインストールし、認証を行う。
 
 ```bash
 # Install Claude Code
@@ -180,10 +253,10 @@ claude "/login"
 
 ```
 
-#### Codex をインストールをインストールし、認証を行う。
+#### Codex をインストールし、認証を行う。
 
 ```bash
-# Install Claude Code
+# Install Codex CLI
 brew install codex
 
 # 認証を行う。ブラウザが立ち上がり認証が成功するとログイン完了となります。
@@ -193,62 +266,13 @@ codex login
 お疲れ様でした。以上でLLM Agentを使うための準備完了です。
 一旦、IDEを終了していただいて結構です。（そのまま使用したい方は起動したままで構いません。）
 
-## Getting Started: LLM Agent を起動する
-
-VS Code を 起動し、Terminalを立ち上げましょう。
-
-- Windows: `Control + j` ボタンで起動できます。
-- mac: `Command + J` ボタンで起動できます。
-
-ターミナルに下記コマンドを入力するか、コピーしてEnterボタンを押下してください。
-
-### Gemini CLI を起動する。
-
-```bash
-# Gemini CLI を起動する。
-gemini
-```
-
-### Claude Code, Codex を起動したい場合
-
-それぞれ以下のコマンドを入力するか、コピーしてEnterボタンを押下してください。
-
-Claude Code
-
-```bash
-# Claude Code を起動する。
-claude
-```
-
-Codex CLI
-
-```bash
-# Codex CLI を起動する。
-codex
-```
-
-## Execution: LLMエージェントにタスクを実行してもらう。
-
-現在、カスタムスラッシュコマンドに対応している以下ツールのみに対応しています。
-execファイルに記載されたタスクをエージェントが実行します。
-
-- Gemini CLI
-  - [exec.toml](.gemini/commands/exec.toml)
-- Claude Code
-  - [exec.md](.claude/commands/exec.md)
-
-```bash
-# LLMを起動後（ロゴの表示後）以下コマンドにて実行
-/exec
-```
-
-
+------------------------------------------------------------------------------------
 
 
 ## Structure: ディレクトリ構造
 
 ```bash
-root/  -------------------------- # Current Directoire 作業ディレクトリ
+root/  -------------------------- # Current Directory 作業ディレクトリ
 ├── .claude/  ------------------- # Claude Code ディレクトリ
 │   ├── commands/  -------------- # Claude Code カスタムスラッシュコマンド 格納ディレクトリ
 │   │   └── tasks/  ------------- # 分割タスクのMarkdownファイル格納ディレクトリ
@@ -271,14 +295,11 @@ root/  -------------------------- # Current Directoire 作業ディレクトリ
 └── README.md  ------------------ # Current File
 ```
 
-## Commands: 実行コマンド
+## Commands: その他、設定済みのカスタムスラッシュコマンド
 
 ```bash
-# Claude Code を起動する。
-claude
-
-# Gemini CLI を起動する。
-gemini
+# 一時作成したファイルの削除
+/clear-tmp
 
 ```
 
@@ -286,24 +307,23 @@ gemini
 
 ### Context7
 
-[Context7 MCP](./docs//MCP/mcp-context7.md)
+[Context7 MCP](./docs/MCP/mcp-context7.md)
 
 ### Playwright
 
-[Playwright MCP](./docs//MCP/mcp-playwright.md)
+[Playwright MCP](./docs/MCP/mcp-playwright.md)
 
 ### Google Analytics
 
-[Google Analytics MCP](./docs//MCP/mcp-google-analytics.md)
-
+[Google Analytics MCP](./docs/MCP/mcp-google-analytics.md)
 
 ### GitHub
 
-[GitHub MCP Server (Remote Server)](./docs//MCP/mcp-github-remote.md)
+[GitHub MCP Server (Remote Server)](./docs/MCP/mcp-github-remote.md)
 
 ### Asana
 
-[Asana MCP](./docs//MCP/mcp-asana.md)
+[Asana MCP](./docs/MCP/mcp-asana.md)
 
 ## Caution: 注意事項
 
@@ -320,5 +340,4 @@ gemini
   - [Claude Code GitHub](https://github.com/anthropics/claude-code/)
   - [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/overview)
 - Codex CLI
-  - [Gemini CLI GitHub](https://github.com/openai/codex/)
-  - [Gemini CLI documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/index.md)
+  - [OpenAI Codex CLI GitHub](https://github.com/openai/codex/)
